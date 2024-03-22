@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prescriptions - Mina's Minders</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff; /* White */
+      color: #333333; /* Dark Gray */
+    }
+
+    #container {
+      max-width: 800px;
+      padding: 20px;
+      border: 2px solid #f08080; /* Light Coral */
+      border-radius: 10px;
+      margin: auto;
+    }
+
+    #header {
+      background-color: #f08080; /* Light Coral */
+      color: #ffffff; /* White */
+      text-align: center;
+      padding: 20px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    #navbar {
+      background-color: #ffe4e1; /* Misty Rose */
+      overflow: hidden;
+      border-bottom: 2px solid #f08080; /* Light Coral */
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    #navbar a {
+      float: left;
+      display: block;
+      color: #333333; /* Dark Gray */
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    #navbar a:hover {
+      background-color: #ffb6c1; /* Light Pink */
+      color: #ffffff; /* White */
+    }
+
+    #content {
+      padding: 20px;
+    }
+
+    h1 {
+      color: #ffffff; /* White */
+      text-align: center;
+    }
+
+    h2 {
+      color: #f08080; /* Light Coral */
+      text-align: center;
+    }
+
+    p {
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* Tabs */
+    .tab {
+      overflow: hidden;
+      border-bottom: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+
+    .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+
+    .tab button:hover {
+      background-color: #ddd;
+    }
+
+    .tab button.active {
+      background-color: #ccc;
+    }
+
+    /* Prescription Form Styling */
+    #prescription-form {
+      margin: auto;
+      max-width: 400px;
+    }
+
+    #prescription-form label {
+      display: block;
+      margin-bottom: 5px;
+      color: #f08080; /* Light Coral */
+    }
+
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box; /* Ensure padding and border are included in width */
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #ff6f61; /* Coral */
+      color: #ffffff; /* White */
+      border: none;
+      border-radius: 5px;
+      padding: 15px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #ff8c7d; /* Lighter Coral */
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <h1>Welcome to Mina's Minders</h1>
+    </div>
+    
+    <div id="navbar">
+      <a href="home.html">Home</a>
+      <a href="appointment.html">Appointments</a>
+	  <a href="prescriptions.html">Prescriptions</a>
+      <a href="#contact">Contact Info</a>
+    </div>
+
+    <div id="content">
+      <h2>Prescriptions</h2>
+      <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'currentPrescriptions')" id="defaultOpen">Current Prescriptions</button>
+        <button class="tablinks" onclick="openTab(event, 'requestPrescriptions')">Request Prescriptions</button>
+      </div>
+
+      <!-- Current Prescriptions -->
+      <div id="currentPrescriptions" class="tabcontent">
+        <h3>Current Prescriptions</h3>
+        <p>No prescriptions available at the moment.</p>
+      </div>
+
+      <!-- Request Prescriptions -->
+      <div id="requestPrescriptions" class="tabcontent">
+        <h3>Request Prescriptions</h3>
+        <p>If you need to request new prescriptions, please fill out the form below:</p>
+        <form id="prescription-form" action="#" method="post">
+  
+          
+          <label for="phone">Preffered Contact Number:</label>
+          <input type="tel" id="phone" name="phone">
+          
+          <label for="prescription">Prescription Details:</label>
+          <textarea id="prescription" name="prescription" rows="4"></textarea>
+          
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Open the default tab (Current Prescriptions)
+    document.getElementById("defaultOpen").click();
+
+    function openTab(evt, tabName) {
+      // Declare all variables
+      var i, tabcontent, tablinks;
+
+      // Get all elements with class="tabcontent" and hide them
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      // Get all elements with class="tablinks" and remove the class "active"
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+</body>
+</html>
