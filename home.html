@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mina's Minders</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff; /* White */
+      color: #333333; /* Dark Gray */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #container {
+      max-width: 800px;
+      padding: 20px;
+      border: 2px solid #f08080; /* Light Coral */
+      border-radius: 10px;
+    }
+
+    #header {
+      background-color: #f08080; /* Light Coral */
+      color: #ffffff; /* White */
+      text-align: center;
+      padding: 20px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    #navbar {
+      background-color: #ffe4e1; /* Misty Rose */
+      overflow: hidden;
+      border-bottom: 2px solid #f08080; /* Light Coral */
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    #navbar a {
+      float: left;
+      display: block;
+      color: #333333; /* Dark Gray */
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    #navbar a:hover {
+      background-color: #ffb6c1; /* Light Pink */
+      color: #ffffff; /* White */
+    }
+
+    #content {
+      padding: 20px;
+    }
+
+    h1 {
+      color: #ffffff; /* White */
+      text-align: center;
+    }
+
+    h2 {
+      color: #f08080; /* Light Coral */
+      text-align: center;
+    }
+
+    p {
+      line-height: 1.6;
+      text-align: center;
+    }
+	 #emergency-call-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ff6f61; /* Coral */
+      color: #ffffff; /* White */
+      border: none;
+      border-radius: 25px;
+      padding: 15px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 9999;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #emergency-call-btn:hover {
+      background-color: #ff8c7d; /* Lighter Coral */
+    }
+	#popup-text {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <h1>Welcome to Mina's Minders</h1>
+    </div>
+    
+    <div id="navbar">
+      <a href="#about">Home</a>
+      <a href="#emergency">Appointments</a>
+	  <a href="#prescriptions">Prescriptions</a>
+      <a href="#contact">Contact Info</a>
+     
+      
+    </div>
+
+    <div id="content">
+      <h2 id="about">About Us</h2>
+      <p>Mina's Minders is dedicated to providing compassionate and professional care for the elderly. Our app offers a range of services tailored to meet the unique needs of seniors, including:</p>
+      <ul>
+        <li>Assistance with daily tasks and activities</li>
+        <li>Medication reminders and management</li>
+        <li>Social engagement and companionship</li>
+        <li>Emergency support and coordination</li>
+        <li>Regular check-ins and monitoring</li>
+      </ul>
+      <p>With Mina's Minders, families can have peace of mind knowing that their loved ones are receiving the highest quality care and support to live comfortably and independently.</p>
+      
+      
+    </div>
+  </div>
+ <button id="emergency-call-btn" onclick="confirmEmergency()">Emergency Call</button>
+
+  <div id="popup-text">
+    <p>Emergency services have been notified.</p>
+  </div>
+
+  <script>
+    function confirmEmergency() {
+      var confirmation = confirm("Are you sure you want to call emergency services?");
+      if (confirmation) {
+        var popup = document.getElementById("popup-text");
+        popup.style.display = "block";
+        setTimeout(function() {
+          popup.style.display = "none";
+        }, 3000); 
+      }
+    }
+  </script>
+</body>
+</html>
