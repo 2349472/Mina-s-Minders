@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Appointments - Mina's Minders</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff; /* White */
+      color: #333333; /* Dark Gray */
+    }
+
+    #container {
+      max-width: 800px;
+      padding: 20px;
+      border: 2px solid #f08080; /* Light Coral */
+      border-radius: 10px;
+      margin: auto;
+    }
+
+    #header {
+      background-color: #f08080; /* Light Coral */
+      color: #ffffff; /* White */
+      text-align: center;
+      padding: 20px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    #navbar {
+      background-color: #ffe4e1; /* Misty Rose */
+      overflow: hidden;
+      border-bottom: 2px solid #f08080; /* Light Coral */
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    #navbar a {
+      float: left;
+      display: block;
+      color: #333333; /* Dark Gray */
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    #navbar a:hover {
+      background-color: #ffb6c1; /* Light Pink */
+      color: #ffffff; /* White */
+    }
+
+    #content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ffffff; /* White */
+    }
+
+    h2 {
+      color: #f08080; /* Light Coral */
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    /* Form Styling */
+    form {
+      margin: auto;
+      max-width: 400px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #f08080; /* Light Coral */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box; /* Ensure padding and border are included in width */
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #ff6f61; /* Coral */
+      color: #ffffff; /* White */
+      border: none;
+      border-radius: 5px;
+      padding: 15px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #ff8c7d; /* Lighter Coral */
+    }
+	#emergency-call-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ff6f61; /* Coral */
+      color: #ffffff; /* White */
+      border: none;
+      border-radius: 25px;
+      padding: 15px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 9999;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+	#emergency-call-btn:hover {
+      background-color: #ff8c7d; /* Lighter Coral */
+    }
+	#popup-text {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <h1>Welcome to Mina's Minders</h1>
+    </div>
+    
+    <div id="navbar">
+      <a href="home.html">Home</a>
+      <a href="#emergency">Appointments</a>
+	  <a href="#prescriptions">Prescriptions</a>
+      <a href="#contact">Contact Info</a>
+    </div>
+
+    <div id="content">
+      <h2>Appointment Request</h2>
+      <p>If you require an emergency appointment, please contact us immediately by calling our hotline at <strong>01902 999 999</strong> or for non-emergency appointments, please fill out the form below:</p>
+      
+      <form action="#" method="post">
+       
+        
+        <label for="phone">Preffered Contact Number:</label>
+        <input type="tel" id="phone" name="phone">
+        
+        <label for="reason">Reason for Appointment:</label>
+        <textarea id="reason" name="reason" rows="4"></textarea>
+        
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+  <button id="emergency-call-btn" onclick="confirmEmergency()">Emergency Call</button>
+
+  <div id="popup-text">
+    <p>Emergency services have been notified.</p>
+  </div>
+
+  <script>
+    function confirmEmergency() {
+      var confirmation = confirm("Are you sure you want to call emergency services?");
+      if (confirmation) {
+        var popup = document.getElementById("popup-text");
+        popup.style.display = "block";
+        setTimeout(function() {
+          popup.style.display = "none";
+        }, 3000); 
+      }
+    }
+  </script>
+</body>
+</html>
