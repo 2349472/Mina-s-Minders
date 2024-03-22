@@ -135,6 +135,35 @@
     input[type="submit"]:hover {
       background-color: #ff8c7d; /* Lighter Coral */
     }
+	#emergency-call-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ff6f61; /* Coral */
+      color: #ffffff; /* White */
+      border: none;
+      border-radius: 25px;
+      padding: 15px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 9999;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+	#emergency-call-btn:hover {
+      background-color: #ff8c7d; /* Lighter Coral */
+    }
+	#popup-text {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body>
@@ -205,6 +234,24 @@
       // Show the current tab, and add an "active" class to the button that opened the tab
       document.getElementById(tabName).style.display = "block";
       evt.currentTarget.className += " active";
+    }
+  </script>
+  <button id="emergency-call-btn" onclick="confirmEmergency()">Emergency Call</button>
+
+  <div id="popup-text">
+    <p>Emergency services have been notified.</p>
+  </div>
+
+  <script>
+    function confirmEmergency() {
+      var confirmation = confirm("Are you sure you want to call emergency services?");
+      if (confirmation) {
+        var popup = document.getElementById("popup-text");
+        popup.style.display = "block";
+        setTimeout(function() {
+          popup.style.display = "none";
+        }, 3000); 
+      }
     }
   </script>
 </body>
